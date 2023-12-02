@@ -33,7 +33,7 @@ function crearError() {
 
 const carritoLista = document.querySelector("#carritoLista");
 const divCarritoVacio = document.querySelector("#carritoVacio")
-const eliminarItem= document.querySelectorAll(".eliminarItem")
+const btnEliminarItemCarrito = document.querySelectorAll(".eliminarItem")
 const carrito = [];
 
 function agregarAlCarrito(index) {
@@ -42,15 +42,16 @@ function agregarAlCarrito(index) {
     const nuevoItemCarrito = document.createElement("div")
     nuevoItemCarrito.classList.add("itemCarrito")
     const btnEliminarItemCarrito = document.createElement("button")
-    btnEliminarItemCarrito.id= document.createElement
-    nuevoItemCarrito.innerHTML = `${productosArray[index].nombre} ${productosArray[index].precio} ${productosArray[index].imagen} ${eliminarItem}`
+    btnEliminarItemCarrito.classList.add("eliminarItem")
+    btnEliminarItemCarrito.textContent= ("eliminar Item")
+    nuevoItemCarrito.innerHTML = `${productosArray[index].nombre} ${productosArray[index].precio} ${productosArray[index].imagen} ${btnEliminarItemCarrito}`
     carritoLista.appendChild(nuevoItemCarrito);
     totalCarrito();
 }
 function eliminarItemCarrito() {
-    const btnEliminarItem= document.createElement("button")
-    btnEliminarItem.classList.add ("eliminarItem")
-    btnEliminarItem.textContent= "eliminar del carrito"
+    const btnEliminarItem = document.createElement("button")
+    btnEliminarItem.classList.add("eliminarItem")
+    btnEliminarItem.textContent = "eliminar del carrito"
 }
 function totalCarrito() {
     const totalCarrito = document.querySelector("#totalCarrito")
@@ -64,20 +65,4 @@ const vaciarCarrito =
 
     }
 
-/*
-
-class Compra {
-    constructor(carritoDeCompras) {
-        this.carrito = carritoDeCompras
-    }
-    obtenerSubtotal() {
-        if (this.carrito.length > 0) {
-            return this.carrito.reduce((acumulador, curso)=> acumulador + curso.precio, 0)
-        }
-    }
-}
- */
-//Local storage
-//localStorage.setItem("pro")
-//localStorage.setItem("productos", JSON.stringify([productos]))
-//const mistock = JSON.parse(localStorage.getItem("productos"))
+localStorage.setItem("productos", JSON.stringify([productosArray]))
