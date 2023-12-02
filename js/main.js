@@ -5,7 +5,7 @@ const productosArray = [
     { nombre: 'Rogel', precio: 10000, },
     { nombre: 'Medialunas (docena)', precio: 1250, },
     { nombre: 'Cheesecake', precio: 10000, },
-    { nombre: 'Torta Oreo', precio: 10000,},
+    { nombre: 'Torta Oreo', precio: 10000, },
 ]
 
 //creación de las cards
@@ -33,30 +33,36 @@ function crearError() {
 
 const carritoLista = document.querySelector("#carritoLista");
 const divCarritoVacio = document.querySelector("#carritoVacio")
+const eliminarItem= document.querySelectorAll(".eliminarItem")
 const carrito = [];
-
 
 function agregarAlCarrito(index) {
     divCarritoVacio.remove();
     carrito.push(productosArray[index].precio);
     const nuevoItemCarrito = document.createElement("div")
     nuevoItemCarrito.classList.add("itemCarrito")
-    nuevoItemCarrito.innerHTML = `${productosArray[index].nombre} ${productosArray[index].precio} ${productosArray[index].imagen}`
+    const btnEliminarItemCarrito = document.createElement("button")
+    btnEliminarItemCarrito.id= document.createElement
+    nuevoItemCarrito.innerHTML = `${productosArray[index].nombre} ${productosArray[index].precio} ${productosArray[index].imagen} ${eliminarItem}`
     carritoLista.appendChild(nuevoItemCarrito);
     totalCarrito();
 }
 function eliminarItemCarrito() {
-
+    const btnEliminarItem= document.createElement("button")
+    btnEliminarItem.classList.add ("eliminarItem")
+    btnEliminarItem.textContent= "eliminar del carrito"
 }
 function totalCarrito() {
-    const totalCarrito= document.querySelector("#totalCarrito")
-    if (carrito.length> 0) {
-        let subTotal = carrito.reduce((acumulador, producto)=> acumulador + producto.precio , 0)
-        totalCarrito.innerText= `${subTotal.toFixed(2)}`
+    const totalCarrito = document.querySelector("#totalCarrito")
+    if (carrito.length > 0) {
+        let subTotal = carrito.reduce((acumulador, producto) => acumulador + producto.precio, 0)
+        totalCarrito.innerText = `${subTotal.toFixed(2)}`
     }
 }
-function vaciarCarrito() {
-}
+const vaciarCarrito =
+    function vaciarCarrito() {
+
+    }
 
 /*
 
