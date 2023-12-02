@@ -1,4 +1,3 @@
-//Array
 const productosArray = [
     { nombre: 'Pavlova', precio: 13000, },
     { nombre: 'Tarta de frutas', precio: 13800, },
@@ -8,7 +7,6 @@ const productosArray = [
     { nombre: 'Torta Oreo', precio: 10000, },
 ]
 
-//creación de las cards
 const contenedorProductos = document.querySelector("#cardsContainer")
 
 
@@ -34,6 +32,7 @@ function crearError() {
 const carritoLista = document.querySelector("#carritoLista");
 const divCarritoVacio = document.querySelector("#carritoVacio")
 const btnEliminarItemCarrito = document.querySelectorAll(".eliminarItem")
+const btnVaciarCarrito= document.querySelector("btnLimpiarCarrito")
 const carrito = [];
 
 function agregarAlCarrito(index) {
@@ -56,13 +55,13 @@ function eliminarItemCarrito() {
 function totalCarrito() {
     const totalCarrito = document.querySelector("#totalCarrito")
     if (carrito.length > 0) {
+        
         let subTotal = carrito.reduce((acumulador, producto) => acumulador + producto.precio, 0)
         totalCarrito.innerText = `${subTotal.toFixed(2)}`
     }
 }
-const vaciarCarrito =
-    function vaciarCarrito() {
-
-    }
+const vaciarCarrito = document.querySelector ("#btnLimpiarCarrito")
 
 localStorage.setItem("productos", JSON.stringify([productosArray]))
+
+
